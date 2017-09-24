@@ -1,0 +1,22 @@
+/*带哨兵的插入排序*/ 
+#include<stdio.h>
+void InsertSort(int *a,int n) {
+	for(int i=2;i<=n;++i) {
+		a[0] = a[i];
+		int j = i -1;
+		while(a[j]>a[0]) {
+			a[j+1] =a[j];
+			--j; 
+		}
+		a[j+1] = a[0];
+	}
+}
+int main() {
+	int a[11] ={0,3,7,32,55,9,478,1,32,100,99};
+	InsertSort(a,10);
+	for(int k = 1;k<=10;++k) {
+		printf("%d ",a[k]);
+	}
+	printf("\n");
+	return 0;
+}
